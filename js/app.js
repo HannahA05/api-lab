@@ -17,7 +17,7 @@ function dogGallery() {
             dachshund: 'dachshund',
             corgi: 'corgi',
             beagle: 'beagle',
-            german: 'germanshepherd',
+            german: 'german',
             collie: 'collie',
             boxer: 'boxer',
             dalmatian: 'dalmatian'
