@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Image Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="mb-6 p-4 bg-white shadow">
+        <a href="index.html" class="mr-4 text-blue-600 font-semibold">Home</a>
+        <a href="reflection.html" class="text-blue-600 font-semibold">AI Reflection</a>
+    </nav>
+
+    <div x-data="dogGallery()" x-init="fetchDogs()" class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Dog Image Gallery</h1>
+                <p class="text-lg text-gray-600 mb-8">Discover adorable dogs from around the world</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button
+                        @click="fetchDogs()"
+                        :disabled="loading"
+                        class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                    >
+                        <span x-show="!loading">Load Dog Images</span>
+                        <span x-show="loading">Loading...</span>
+                    </button>
+
+                    <select
+                        x-model="breed"
+                        @change="fetchDogs()"
+                        class="px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    >
+                        <option value="">All Breeds</option>
+                        <option value="labrador">Labrador</option>
+                        <option value="bulldog">Bulldog</option>
+                        <option value="husky">Husky</option>
+                        <option value="poodle">Poodle</option>
+                        <option value="golden">Golden Retriever</option>
+                    </select>
+                </div>
+            </div>
+
+            <div x-show="error" class="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                <p>Error: <span x-text="error"></span></p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <template x-for="(dog, index) in dogs" :key="index">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow hover:scale-105 transform duration-300">
+                        <div class="aspect-square overflow-hidden bg-gray-200">
+                            <img
+                                :src="dog"
+                                :alt="`Dog ${index + 1}`"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-700 text-sm font-medium">Dog #<span x-text="index + 1"></span></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
