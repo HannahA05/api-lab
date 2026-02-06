@@ -9,54 +9,17 @@
 <body class="bg-gray-50">
 
     <nav class="mb-6 p-4 bg-white shadow">
-        <a href="index.html" class="mr-4 text-blue-600 font-semibold">Home</a>
-        <a href="reflection.html" class="text-blue-600 font-semibold">AI Reflection</a>
+        <a href="index.html" class="text-blue-600 font-semibold">Home</a>
     </nav>
 
-    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">AI Reflection</h1>
-            </div>
-
-            <div class="space-y-6">
-
-                <!-- What I Built -->
-                <div class="bg-white rounded-lg shadow-md p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What I Built</h2>
-                    <p class="text-gray-700">
-                        A dog image gallery app that fetches random dog photos from the Dog CEO API. Users can click to load images or select a specific breed. Built with vanilla JavaScript, Tailwind CSS, and deployed to be Netlify-ready.
-                    </p>
-                </div>
-
-                <!-- Key Challenges -->
-                <div class="bg-white rounded-lg shadow-md p-8">
-
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Main Challenges</h2>
-                    <ul class="space-y-3 text-gray-700">
-                        <li><strong>API Quirks:</strong> The API returns "succes" (typo) for random images but "success" for breed-specific requests</li>
-                        <li><strong>Breed Paths:</strong> Some breeds have sub-paths like "retriever/golden" - had to verify with actual API calls</li>
-                        <li><strong>Framework Issues:</strong> Alpine.js had timing problems, so switched to vanilla JavaScript for reliability</li>
-                    </ul>
-                </div>
-
-                <!-- What I Learned -->
-                <div class="bg-white rounded-lg shadow-md p-8">
-
-
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Lessons Learned</h2>
-                    <ul class="space-y-3 text-gray-700">
-                        <li>Test against real APIs early - don't assume response formats</li>
-                        <li>Sometimes vanilla JS is simpler than frameworks for small projects</li>
-                        <li>Error handling and loading states matter for user experience</li>
-                    </ul>
-                </div>
-
-            </div>
-
-
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-2xl bg-white rounded-lg shadow-md p-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">AI Reflection</h1>
+            <p class="text-gray-700 text-lg">
+                Using GitHub Copilot really helped me get this lab done faster. I used prompts like “Create a simple HTML page that uses Tailwind CSS and Alpine.js to display a grid of dog images from an API” and “Write an Alpine.js component that fetches 12 random dog images from the Dog CEO API with loading, error handling, and a breed selector.” Copilot gave me working code almost right away, and I mostly just had to tweak it a little. I noticed GPT-4o gave better, more complete answers than the other model. Overall, it made building the page a lot easier and saved me from writing all the code from scratch.
+            </p>
         </div>
     </div>
+
 </body>
 </html>
