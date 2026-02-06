@@ -23,13 +23,6 @@ function dogGallery() {
             dalmatian: 'dalmatian'
         },
 
-        async init() {
-            // Initialize on component mount
-            if (this.dogs.length === 0) {
-                await this.fetchDogs();
-            }
-        },
-
         async fetchDogs() {
             // Prevent duplicate requests
             if (this.loading) return;
