@@ -67,10 +67,11 @@ function dogGallery() {
                 const data = await response.json();
 
                 // Validate response format
-                if (data && data.status === 'success' && Array.isArray(data.message)) {
+                // Note: Dog CEO API returns "succes" (typo in their API) not "success"
+                if (data && (data.status === 'success' || data.status === 'succes') && Array.isArray(data.message)) {
                     this.dogs = data.message;
                     this.error = '';
-                } else if (data && data.status !== 'success') {
+                } else if (data && data.status === 'error') {
                     this.error = data.message || 'Failed to fetch dog images. Please try another breed.';
                 } else {
                     this.error = 'Invalid response format from API';
