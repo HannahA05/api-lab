@@ -15,7 +15,7 @@
         <a href="reflection.html" class="text-blue-600 font-semibold">AI Reflection</a>
     </nav>
 
-    <div x-data="dogGallery()" x-init="fetchDogs()" class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div x-data="dogGallery()" x-init="init()" class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
 
             <div class="text-center mb-12">
@@ -67,6 +67,14 @@
                         </div>
                     </div>
                 </template>
+            </div>
+
+            <div x-show="loading && dogs.length === 0" class="text-center py-12 text-gray-500">
+                Loading dog images...
+            </div>
+
+            <div x-show="!loading && dogs.length === 0 && !error" class="text-center py-12 text-gray-500">
+                Click "Load Dog Images" to get started!
             </div>
 
         </div>
